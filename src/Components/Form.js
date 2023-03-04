@@ -9,18 +9,7 @@ import Summary from "./Summary";
 const Form = ({ num, setNum }) => {
   const [formInputs] = useFormInputs();
   const [billing, setBilling] = useState(formInputs.billDuration);
-  // switch (num) {
-  //   case 1:
-  //     return <PersonalInfo setNum={setNum} />;
-  //   case 2:
-  //     return <Plan setNum={setNum} index={num} />;
-  //   case 3:
-  //     return <AddOns setNum={setNum} index={num} />;
-  //   case 4:
-  //     return <Summary setNum={setNum} index={num} />;
-  //   default:
-  //     return "";
-  // }
+
   return (
     <form>
       {num === 1 ? (

@@ -22,16 +22,14 @@ const AddOns = ({ index, setNum, billing }) => {
   };
 
   const handleChange = (e) => {
-    console.log(e.target.value);
-
     setAddOns((prev) => {
       return {
         ...prev,
-        [e.target.name]:
-          addOns === false ? true : addOns === true ? false : true,
+        [e.target.name]: !addOns[e.target.name],
       };
     });
   };
+  console.log(formInputs);
   const handleClick = () => {
     console.log("Yo");
   };
@@ -85,6 +83,7 @@ const AddOns = ({ index, setNum, billing }) => {
                 handleClick={handleClick}
                 name={add.name}
                 value={add.value}
+                key={add.id}
               />
             ))}
           </div>

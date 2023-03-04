@@ -9,6 +9,7 @@ const Home = () => {
   return (
     <div className="home">
       <Navbar index={num} />
+
       <Form num={num} setNum={setNum} />
     </div>
   );

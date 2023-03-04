@@ -2,46 +2,38 @@
 @tailwind components;
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 :root {
   --Marineblue: hsl(213, 96%, 18%);
   --Purplishblue: hsl(243, 100%, 62%);
   --Pastelblue: hsl(228, 100%, 84%);
+  --Magnolia: hsl(217, 100%, 97%);
   --Lightblue: hsl(206, 94%, 87%);
   --Strawberryred: hsl(354, 84%, 57%);
   --Coolgray: hsl(231, 11%, 63%);
   --Lightgray: hsl(229, 24%, 87%);
-  --Magnolia: hsl(217, 100%, 97%);
   --Alabaster: hsl(231, 100%, 99%);
   --White: hsl(0, 0%, 100%);
 }
 
 body {
-  margin: 0;
-  padding: 0;
   display: flex;
 
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+
   font-family: "Ubuntu";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f6f6f6;
 }
-.multi-form-container {
-  margin: auto;
-  width: 900px;
-  height: 500px;
-  display: flex;
-  justify-content: space-between;
-  background-color: white;
-  border-radius: 7px;
-  padding: 20px 80px 20px 20px;
-}
+
 nav {
-  width: 30%;
-  height: 100%;
+  flex-basis: 30%;
+  height: 450px;
   border-radius: 5px;
   padding: 40px;
 }
@@ -76,10 +68,17 @@ nav {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
-  width: 100%;
+  width: 800px;
+  flex-wrap: wrap;
+
+  background-color: white;
+  border-radius: 7px;
+  padding: 20px 80px 20px 20px;
+  min-height: 500px;
+  margin: auto;
 }
 form {
-  width: 60%;
+  flex-basis: 60%;
   margin-left: auto;
 }
 .personal-title {
@@ -118,6 +117,7 @@ form {
   display: flex;
   margin-bottom: 32px;
   justify-content: space-between;
+  flex-wrap: wrap;
 
   align-items: center;
 }
@@ -127,7 +127,8 @@ form {
 .plan-container {
   border-radius: 7px;
   padding: 20px;
-  width: 150px;
+  width: 130px;
+
   height: 150px;
   display: flex;
   flex-direction: column;
@@ -258,13 +259,17 @@ form {
 .plan-summary > h2 {
   color: var(--Coolgray);
 }
+.plan-amount p {
+  font-weight: 700;
+  color: var(--Marineblue);
+  font-size: 1em;
+}
 .plan-summary p {
   font-size: 12px;
   color: var(--Marineblue);
-  font-weight: 700;
 }
 .summary {
-  margin-bottom: 64px;
+  margin-bottom: 18px;
 }
 .plan-sum-body h2 {
   font-weight: 700;
@@ -282,6 +287,7 @@ form {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 240ms ease-in-out;
 }
 .success {
   text-align: center;
@@ -298,4 +304,78 @@ form {
 .success-message p {
   color: var(--Coolgray);
 }
+.success-message p span {
+  color: var(--Purplishblue);
+  font-size: 1.2em;
+  font-weight: 700;
+}
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 9px;
+  padding: 15px;
+}
+.total p {
+  color: var(--Coolgray);
+}
+.total-amount p {
+  color: var(--Purplishblue);
+  font-weight: 800;
+  font-size: 1.2em;
+}
+@media only screen and (max-width: 800px) {
+  nav {
+    flex-basis: 100%;
+    height: 100%;
+  }
+  form {
+    flex-basis: 100%;
+    background-color: var(--White);
+    position: relative;
+    top: -80px;
+    padding: 30px;
+  }
+  .home {
+    padding: 0;
+    background-color: var(--Lightblue);
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-body {
+    display: none;
+  }
+  .nav-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+  }
+  .plan-container {
+    width: 100%;
+    padding: 10px;
+    height: 90px;
+  }
+  .plan-label label {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .plan-icon {
+    margin: 0;
+  }
+  .plans {
+    gap: 15px;
+  }
+  .personal-title h1 {
+    font-size: 2em;
+  }
+  .billing-container {
+    margin-bottom: 18px;
+  }
+}
+
 @tailwind utilities;

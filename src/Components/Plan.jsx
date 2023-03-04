@@ -8,11 +8,10 @@ import BillDuration from "./BillDuration";
 
 const Plan = ({ index, setNum, billing, setBilling }) => {
   const [formInputs] = useFormInputs();
-  
+
   const [planState, setPlanState] = useState({
     selectedPlan: formInputs.plan,
   });
-
 
   const handleClick = (value) => {
     setPlanState(() => {
@@ -23,9 +22,10 @@ const Plan = ({ index, setNum, billing, setBilling }) => {
   };
 
   const handleNavigate = () => {
-    if (planState === "") return;
+    if (planState.selectedPlan === "") return;
 
     formInputs.plan = planState.selectedPlan;
+    formInputs.billDuration = billing;
 
     setNum((prev) => prev + 1);
   };
@@ -41,7 +41,7 @@ const Plan = ({ index, setNum, billing, setBilling }) => {
       value: "Arcade",
     },
     {
-      id: 1,
+      id: 2,
       name: "Advanced",
       planAmount: billing === "Monthly" ? "$12/mo" : "$120/yr",
       icon: advancedIcon,
@@ -50,7 +50,7 @@ const Plan = ({ index, setNum, billing, setBilling }) => {
       value: "Advanced",
     },
     {
-      id: 1,
+      id: 3,
       name: "Pro",
       planAmount: billing === "Monthly" ? "$15/mo" : "$150/yr",
       icon: proIcon,
@@ -75,7 +75,9 @@ const Plan = ({ index, setNum, billing, setBilling }) => {
               handleClick={plan.handleClick}
               planAmount={plan.planAmount}
               value={plan.value}
+              key={plan.id}
               state={planState.selectedPlan}
+              billing={billing}
             />
           ))}
         </div>

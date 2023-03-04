@@ -87,6 +87,7 @@ const PersonalInfo = ({ index, setNum }) => {
                 type={input.type}
                 name={input.name}
                 active={active}
+                key={input.id}
               />
             ))}
           </div>

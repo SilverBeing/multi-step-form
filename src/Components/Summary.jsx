@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Title from "./Title";
 import useFormInputs from "../Hooks/useFormInputs";
 
@@ -13,6 +12,16 @@ const Summary = ({ index, setNum, billing }) => {
   let online = billing === "Yearly" ? 10 : billing === "Monthly" ? 1 : "";
   let large = billing === "Yearly" ? 20 : billing === "Monthly" ? 2 : "";
   let custom = billing === "Yearly" ? 30 : billing === "Monthly" ? 3 : "";
+  const bill =
+    formInputs.plan === "Arcade"
+      ? arcade
+      : formInputs.plan === "Advanced"
+      ? advanced
+      : formInputs.plan === "Pro"
+      ? pro
+      : "";
+  const duration =
+    billing === "Yearly" ? "yr" : billing === "Monthly" ? "mo" : "";
   const handleNavigate = () => {
     setNum((prev) => prev + 1);
   };
@@ -34,63 +43,46 @@ const Summary = ({ index, setNum, billing }) => {
                 <button onClick={() => setNum(2)}>Change</button>
               </div>
               <div className="plan-amount">
-                <p>{`$${
-                  formInputs.plan === "Arcade"
-                    ? arcade
-                    : formInputs.plan === "Advanced"
-                    ? advanced
-                    : formInputs.plan === "Pro"
-                    ? pro
-                    : ""
-                }/${
-                  billing === "Yearly"
-                    ? "yr"
-                    : billing === "Monthly"
-                    ? "mo"
-                    : ""
-                }`}</p>
+                <p>{`$${bill}/${duration}`}</p>
               </div>
             </div>
             <div>
               {formInputs.addOns.onlineService && (
                 <div className="plan-summary">
                   <h2>Online Service</h2>
-                  <p>{`+$${online}/${
-                    billing === "Yearly"
-                      ? "yr"
-                      : billing === "Monthly"
-                      ? "mo"
-                      : ""
-                  }`}</p>
+                  <p>{`+$${online}/${duration}`}</p>
                 </div>
               )}
               {formInputs.addOns.largeStorage && (
                 <div className="plan-summary">
                   <h2>Large Storage</h2>
-                  <p>{`+$${large}/${
-                    billing === "Yearly"
-                      ? "yr"
-                      : billing === "Monthly"
-                      ? "mo"
-                      : ""
-                  }`}</p>
+                  <p>{`+$${large}/${duration}`}</p>
                 </div>
               )}
               {formInputs.addOns.customizableProfile && (
-                <div>
+                <div className="plan-summary">
                   <h2>Customizable Profile</h2>
-                  <p>{`+$${custom}/${
-                    billing === "Yearly"
-                      ? "yr"
-                      : billing === "Monthly"
-                      ? "mo"
-                      : ""
-                  }`}</p>
+                  <p>{`+$${custom}/${duration}`}</p>
                 </div>
               )}
             </div>
+            <div className="total-container">
+              <div className="total">
+                <p>Total (per {billing === "Yearly" ? "year" : "month"})</p>
+              </div>
+              <div className="total-amount">
+                <p>
+                  $
+                  {`${
+                    bill +
+                    (formInputs.addOns.onlineService ? online : 0) +
+                    (formInputs.addOns.customizableProfile ? custom : 0) +
+                    (formInputs.addOns.largeStorage ? large : 0)
+                  }/${duration}`}
+                </p>
+              </div>
+            </div>
           </div>
-          <div></div>
           <Buttons
             setNum={setNum}
             back="Go Back"

@@ -8,6 +8,7 @@ const Radio = ({
   value,
   handleChange,
   state,
+  billing,
 }) => {
   return (
     <div className={`plan-container ${value === state ? "label-active" : ""}`}>
@@ -19,6 +20,7 @@ const Radio = ({
           <div className="plan-body">
             <h2>{name}</h2>
             <p>{planAmount}</p>
+            <p>{billing === "Yearly" && "2months free"}</p>
           </div>
           <input
             type="radio"

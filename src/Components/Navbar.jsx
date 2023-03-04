@@ -1,9 +1,22 @@
-import { useState } from "react";
-import { bgDesktop } from "../assets/images";
+import { useState, useEffect } from "react";
+import { bgDesktop, bgMobile } from "../assets/images";
 
 const Navbar = ({ index }) => {
   const [steps, setSteps] = useState([1, 2, 3, 4]);
+  const [bgImage, setBgImage] = useState();
+
   console.log(typeof steps);
+  const setBackgroundImage = () => {
+    const width = window.innerWidth;
+    console.log(width);
+    width <= "800" ? setBgImage(bgMobile) : setBgImage(bgDesktop);
+  };
+  useEffect(() => {
+    setBackgroundImage();
+    window.addEventListener("resize", setBackgroundImage);
+    return () => document.removeEventListener("resize", setBackgroundImage);
+  }, []);
+
   const navigation = [
     {
       id: steps[0],
@@ -30,7 +43,7 @@ const Navbar = ({ index }) => {
   return (
     <nav
       style={{
-        backgroundImage: `url(${bgDesktop})`,
+        backgroundImage: `url(${bgImage})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
@@ -39,7 +52,7 @@ const Navbar = ({ index }) => {
       <div className="nav-container">
         <>
           {navigation.map((nav) => (
-            <div className="nav-item">
+            <div className="nav-item" key={nav.id}>
               <div className="nav-index">
                 <button className={nav.id === index ? "active" : ""}>
                   {nav.id}
