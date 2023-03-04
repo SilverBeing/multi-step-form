@@ -1,17 +1,301 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
+* {
+  box-sizing: border-box;
+}
+:root {
+  --Marineblue: hsl(213, 96%, 18%);
+  --Purplishblue: hsl(243, 100%, 62%);
+  --Pastelblue: hsl(228, 100%, 84%);
+  --Lightblue: hsl(206, 94%, 87%);
+  --Strawberryred: hsl(354, 84%, 57%);
+  --Coolgray: hsl(231, 11%, 63%);
+  --Lightgray: hsl(229, 24%, 87%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+}
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  padding: 0;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Ubuntu";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f6f6f6;
 }
+.multi-form-container {
+  margin: auto;
+  width: 900px;
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 7px;
+  padding: 20px 80px 20px 20px;
+}
+nav {
+  width: 30%;
+  height: 100%;
+  border-radius: 5px;
+  padding: 40px;
+}
+.nav-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 18px;
+  align-items: center;
+}
+.nav-index button {
+  border: 1px solid var(--Magnolia);
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  border-radius: 50%;
+  color: var(--Magnolia);
+}
+.active {
+  background-color: var(--Magnolia) !important;
+  color: var(--Marineblue) !important;
+}
+.nav-body p {
+  color: var(--Marineblue);
+}
+.nav-body h2 {
+  font-weight: 700;
+  font-size: 0.9em;
+  color: var(--Magnolia);
+}
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+}
+form {
+  width: 60%;
+  margin-left: auto;
+}
+.personal-title {
+  margin-bottom: 32px;
+}
+.personal-title h1 {
+  font-size: 3em;
+  color: var(--Marineblue);
+  font-weight: 700;
+}
+.personal-title p {
+  color: var(--Coolgray);
+}
+.info-container {
+  margin-bottom: 18px;
+}
+.input-label {
+  margin-bottom: 3px;
+}
+.input-label label {
+  font-weight: 700;
+  color: var(--Marineblue);
+}
+.input input {
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  color: var(--Marineblue);
+  font-weight: 500;
+  width: 100%;
+}
+.plans-container {
+  width: 100%;
+}
+.plans {
+  display: flex;
+  margin-bottom: 32px;
+  justify-content: space-between;
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  align-items: center;
 }
+.plan-label input {
+  display: none;
+}
+.plan-container {
+  border-radius: 7px;
+  padding: 20px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+.plan-icon {
+  margin-bottom: 18px;
+  width: 40px;
+  height: 50px;
+}
+.plan-icon img {
+  width: 100%;
+  object-fit: contain;
+}
+.label-active,
+.add-active {
+  border: 1px solid var(--Pastelblue);
+  background-color: var(--Alabaster);
+}
+.plan-body h2 {
+  color: var(--Marineblue);
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.plan-body p {
+  color: var(--Coolgray);
+}
+.billings {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+}
+.billing-input {
+  width: 50px;
+  height: 20px;
+  padding: 5px;
+  background-color: var(--Marineblue);
+  border-radius: 10px;
+}
+.billing-input label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.billing-input input {
+  opacity: 0;
+}
+.pop {
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 50%;
+  background-color: var(--White);
+  z-index: 1000;
+}
+.billing-container {
+  background-color: var(--Alabaster);
+  width: 100%;
+  padding: 10px;
+  border-radius: 7px;
+  margin-bottom: 64px;
+}
+.animate {
+  transform: translateX(180%);
+}
+.monthly h2 {
+  font-size: 1.1em;
+  color: var(--Coolgray);
+  font-weight: 700;
+}
+.navigation-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.next-button button {
+  padding: 12px 25px;
+  background-color: var(--Marineblue);
+  color: var(--Alabaster);
+  font-size: 1.1em;
+  font-weight: 700;
+  border-radius: 6px;
+}
+.back-button button {
+  color: var(--Coolgray);
+  padding: 12px 25px;
+}
+.billing {
+  color: var(--Marineblue) !important;
+}
+.add-contain label {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  box-shadow: 0px 1px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+.addon-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.addon-service h2 {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--Marineblue);
+}
+.addon-service p {
+  color: var(--Coolgray);
+}
+.plan-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px;
+  background-color: var(--Alabaster);
+}
+.plan-summary > h2 {
+  color: var(--Coolgray);
+}
+.plan-summary p {
+  font-size: 12px;
+  color: var(--Marineblue);
+  font-weight: 700;
+}
+.summary {
+  margin-bottom: 64px;
+}
+.plan-sum-body h2 {
+  font-weight: 700;
+  color: var(--Marineblue);
+}
+.plan-sum-body button {
+  font-size: 14px;
+  text-decoration: underline;
+  color: var(--Purplishblue);
+}
+.confirm {
+  background-color: var(--Purplishblue) !important;
+}
+.success-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.success {
+  text-align: center;
+}
+.success-icon img {
+  margin: auto;
+}
+.success-message h1 {
+  font-size: 4em;
+  color: var(--Marineblue);
+  font-weight: 800;
+  margin: 10px;
+}
+.success-message p {
+  color: var(--Coolgray);
+}
+@tailwind utilities;

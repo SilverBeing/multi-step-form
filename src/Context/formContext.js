@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-const formInfo = {
+export let formInfo = {
   personalInfo: {
     name: "",
     email: "",
@@ -11,8 +11,9 @@ const formInfo = {
     largeStorage: false,
     customizableProfile: false,
   },
-  billDuration: "",
+  billDuration: "Monthly",
 };
+
 export const formContext = createContext();
 const FormContextProvider = ({ children }) => {
   const [formInputs, setFormInputs] = useState({
@@ -21,6 +22,10 @@ const FormContextProvider = ({ children }) => {
     addOns: formInfo.addOns,
     billDuration: formInfo.billDuration,
   });
+  // for (let i = 0; i < Object.keys(formInputs).length; i++) {
+  //   steps.push(i);
+  // }
+
   return (
     <formContext.Provider value={[formInputs, setFormInputs]}>
       {children}

@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
+import Form from "./Form";
 
 const Home = () => {
+  const [num, setNum] = useState(1);
+
   return (
-    <div>
-      <Navbar />
-      <form>
-        <Outlet />
-      </form>
+    <div className="home">
+      <Navbar index={num} />
+      <Form num={num} setNum={setNum} />
     </div>
   );
 };

@@ -4,17 +4,15 @@ import "./index.css";
 import App from "./App";
 import FormContextProvider from "./Context/formContext";
 import { BrowserRouter } from "react-router-dom";
-import PlanAddonsContextProvider from "./Context/plan&Addons";
+import "@fontsource/ubuntu";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <FormContextProvider>
-      <PlanAddonsContextProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </PlanAddonsContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </FormContextProvider>
   </React.StrictMode>
 );
