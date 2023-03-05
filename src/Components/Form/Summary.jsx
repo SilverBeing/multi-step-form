@@ -1,7 +1,7 @@
-import Title from "./Title";
-import useFormInputs from "../Hooks/useFormInputs";
+import Title from "../Global/Title";
+import useFormInputs from "../../Hooks/useFormInputs";
 
-import Buttons from "./Buttons";
+import Buttons from "../Global/Buttons";
 const Summary = ({ index, setNum, billing }) => {
   const [formInputs] = useFormInputs();
 

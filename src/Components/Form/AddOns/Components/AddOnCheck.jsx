@@ -2,7 +2,7 @@ import React from "react";
 
 const AddOnCheck = ({
   service,
-  handleClick,
+
   handleChange,
   subheading,
   addOnAmount,
@@ -11,11 +11,7 @@ const AddOnCheck = ({
 }) => {
   return (
     <div className="add-contain">
-      <label
-        htmlFor={name}
-        onClick={handleClick}
-        className={value ? "add-active" : ""}
-      >
+      <label htmlFor={name} className={value ? "add-active" : ""}>
         <div className="addon-check">
           <input
             id={name}

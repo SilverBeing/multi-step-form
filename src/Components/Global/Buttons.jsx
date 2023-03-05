@@ -7,7 +7,12 @@ const Buttons = ({ handleNavigate, setNum, back, next }) => {
         <button>{back}</button>
       </div>
       <div className="next-button" onClick={handleNavigate}>
-        <button className={next === "Confirm" ? "confirm" : ""}>{next}</button>
+        <button
+          className={next === "Confirm" ? "confirm" : ""}
+          type={next === "Confirm" ? "submit" : "button"}
+        >
+          {next}
+        </button>
       </div>
     </div>
   );

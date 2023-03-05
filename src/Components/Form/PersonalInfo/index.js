@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import Input from "./Input";
+import Input from "./Components/Input";
 
-import { formInfo } from "../Context/formContext";
-import useFormInputs from "../Hooks/useFormInputs";
-import Buttons from "./Buttons";
-import Title from "./Title";
+import { formInfo } from "../../../Context/formContext";
+import useFormInputs from "../../../Hooks/useFormInputs";
+import Buttons from "../../Global/Buttons";
+import Title from "../../Global/Title";
 
 const PersonalInfo = ({ index, setNum }) => {
   const [formInputs] = useFormInputs();
@@ -23,12 +23,8 @@ const PersonalInfo = ({ index, setNum }) => {
 
     setNum((prev) => prev + 1);
   };
-  console.log(formInputs);
-  console.log(formInputs.personalInfo.name);
-  console.log(formInputs.personalInfo.email);
-  console.log(formInputs.personalInfo.phoneNumber);
+
   const handleChange = (e) => {
-    console.log(e.target.value);
     setActive(true);
     setValues((prev) => {
       return {

@@ -1,14 +1,14 @@
+/*eslint-disable*/
 import { useState, useEffect } from "react";
-import { bgDesktop, bgMobile } from "../assets/images";
+import { bgDesktop, bgMobile } from "../../assets/images";
 
 const Navbar = ({ index }) => {
   const [steps, setSteps] = useState([1, 2, 3, 4]);
   const [bgImage, setBgImage] = useState();
 
-  console.log(typeof steps);
   const setBackgroundImage = () => {
     const width = window.innerWidth;
-    console.log(width);
+
     width <= "800" ? setBgImage(bgMobile) : setBgImage(bgDesktop);
   };
   useEffect(() => {
@@ -68,7 +68,6 @@ const Navbar = ({ index }) => {
       </div>
     </nav>
   );
-  //   return <h1>{formInputs.personalInfo.name}</h1>;
 };
 
 export default Navbar;

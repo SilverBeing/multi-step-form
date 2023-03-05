@@ -1,6 +1,6 @@
 import React from "react";
-import { thankyouIcon } from "../assets/images";
-import useFormInputs from "../Hooks/useFormInputs";
+import { thankyouIcon } from "../../assets/images";
+import useFormInputs from "../../Hooks/useFormInputs";
 
 const Success = () => {
   const [formInputs] = useFormInputs();

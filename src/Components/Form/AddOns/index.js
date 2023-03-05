@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { formInfo } from "../Context/formContext";
-import useFormInputs from "../Hooks/useFormInputs";
-import AddOnCheck from "./AddOnCheck";
-import Title from "./Title";
-import Buttons from "./Buttons";
+import { formInfo } from "../../../Context/formContext";
+import useFormInputs from "../../../Hooks/useFormInputs";
+import AddOnCheck from "./Components/AddOnCheck";
+import Title from "../../Global/Title";
+import Buttons from "../../Global/Buttons";
 
 const AddOns = ({ index, setNum, billing }) => {
   const [formInputs] = useFormInputs();
@@ -29,10 +29,7 @@ const AddOns = ({ index, setNum, billing }) => {
       };
     });
   };
-  console.log(formInputs);
-  const handleClick = () => {
-    console.log("Yo");
-  };
+
   const addonData = [
     {
       id: 1,
@@ -41,7 +38,7 @@ const AddOns = ({ index, setNum, billing }) => {
       subheading: "Access to multiplayer games",
       addOnAmount: billing === "Monthly" ? "+$1/mo" : "+$10/yr",
       handleChange: handleChange,
-      handleClick: handleClick,
+
       value: addOns.onlineService,
     },
     {
@@ -51,7 +48,7 @@ const AddOns = ({ index, setNum, billing }) => {
       subheading: "Extra 1TB of cloud save",
       addOnAmount: billing === "Monthly" ? "+$2/mo" : "+$20/yr",
       handleChange: handleChange,
-      handleClick: handleClick,
+
       value: addOns.largeStorage,
     },
     {
@@ -61,7 +58,7 @@ const AddOns = ({ index, setNum, billing }) => {
       subheading: "Custom theme on your profile",
       addOnAmount: billing === "Monthly" ? "+$2/mo" : "+$20/yr",
       handleChange: handleChange,
-      handleClick: handleClick,
+
       value: addOns.customizableProfile,
     },
   ];
@@ -80,7 +77,6 @@ const AddOns = ({ index, setNum, billing }) => {
                 subheading={add.subheading}
                 addOnAmount={add.addOnAmount}
                 handleChange={handleChange}
-                handleClick={handleClick}
                 name={add.name}
                 value={add.value}
                 key={add.id}

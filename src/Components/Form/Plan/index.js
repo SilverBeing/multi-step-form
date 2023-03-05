@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import useFormInputs from "../Hooks/useFormInputs";
-import Radio from "./Radio";
-import { arcadeIcon, advancedIcon, proIcon } from "../assets/images";
-import Buttons from "./Buttons";
-import Title from "./Title";
-import BillDuration from "./BillDuration";
+import useFormInputs from "../../../Hooks/useFormInputs";
+import Radio from "./Components/Radio";
+import { arcadeIcon, advancedIcon, proIcon } from "../../../assets/images";
+import Buttons from "../../Global/Buttons";
+import Title from "../../Global/Title";
+import BillDuration from "./Components/BillDuration";
 
 const Plan = ({ index, setNum, billing, setBilling }) => {
   const [formInputs] = useFormInputs();

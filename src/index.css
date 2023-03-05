@@ -98,6 +98,10 @@ form {
 .input-label {
   margin-bottom: 3px;
 }
+label,
+input {
+  cursor: pointer;
+}
 .input-label label {
   font-weight: 700;
   color: var(--Marineblue);
@@ -109,6 +113,7 @@ form {
   color: var(--Marineblue);
   font-weight: 500;
   width: 100%;
+  outline: none;
 }
 .plans-container {
   width: 100%;
@@ -325,6 +330,20 @@ form {
   font-weight: 800;
   font-size: 1.2em;
 }
+.warning {
+  border: 1px solid var(--Strawberryred);
+}
+.error {
+  width: 100%;
+  margin-top: 4px;
+}
+.error p {
+  font-size: 12px;
+  color: var(--Strawberryred);
+  font-weight: 700;
+  text-align: right;
+}
+
 @media only screen and (max-width: 800px) {
   nav {
     flex-basis: 100%;

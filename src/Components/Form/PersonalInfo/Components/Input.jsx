@@ -17,6 +17,7 @@ const Input = ({ label, type, placeholder, value, onChange, name, active }) => {
           name={name}
           required={true}
           onBlur={() => setError(true)}
+          className={error && !active ? "warning" : ""}
         />
       </div>
       <div className="error">
